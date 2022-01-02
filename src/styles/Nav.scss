@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Ruslan+Display&display=swap');
+
+@mixin breakpoint($point){
+  @if $point == desktop_1200w{
+    @media (min-width: 1200px){
+      @content;
+    }
+  }
+}
+
+$primary-nav-color: darkred;
+
+nav{
+  display: flex;
+  flex-direction: column;
+  background-color: $primary-nav-color;
+  color: white;   
+  text-transform: uppercase;
+  width: 100%;
+  text-align: center;
+
+  h1{
+    font-family: 'Ruslan Display', cursive;    
+    z-index: 1;
+    line-height: 15vh;    
+    font-size: 35px;
+  }   
+  
+  .gear{    
+    @include breakpoint(desktop_1200w){    
+    background-image: url('../img/gear.png');
+    background-size: cover;
+    object-fit: cover;    
+    width: 500px;
+    height: 500px;   
+    position: fixed;   
+    left: -200px; 
+    top: -200px;
+    overflow: hidden;
+    z-index: 1;    
+    transform: translate(-50% -50%);
+    animation: clock 50s linear infinite;   
+    }
+  }
+
+  .navbar{   
+    font-size: 25px;        
+  }
+
+  .user{
+    display: flex;    
+    font-size:25px;
+    justify-content: center;
+    line-height: 50px;
+    
+    i{
+      margin-left: 20px;
+      line-height: 50px;
+    }
+  }
+}
+
+@keyframes clock {
+  0% {transform: rotate(0deg);}
+  100% {transform: rotate(360deg);}
+}
+
+.loginPanel{
+  // position: absolute;
+  display: none;
+  background-color: $primary-nav-color;
+  right: 0;
+  top: 0;    
+}
+
+

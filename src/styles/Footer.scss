@@ -1,0 +1,68 @@
+@import './Nav.scss';
+
+footer{
+  background-color: $primary-nav-color;
+  color: white;  
+  .footer-wrap{    
+    width: 80%;
+    margin: 0 auto;    
+  }  
+}
+
+.subForm{
+  padding: 20px 0;
+  text-align: center;  
+  div{
+    background-color: $primary-nav-color;
+    border: 2px solid white;
+    display: inline-block; 
+    border-radius: 20px;    
+    input{
+      background-color: transparent;
+      border: none;
+      line-height: 30px;
+    }
+    input:nth-child(1){
+      padding-left: 10px;      
+    }
+    input::placeholder{
+      color: #fff;
+    }
+    input:nth-child(2){
+      background-color: #fff;
+      color: $primary-nav-color;
+      border-radius: 15px;
+      border-top-left-radius: 20px;
+      border-bottom-left-radius: 20px;
+      font-weight: bold;
+      padding: 0 20px;
+    }
+  }
+}
+
+.contact{   
+  padding-bottom: 10px;
+  h2{
+    font-size: 25px;
+  }
+  li{
+    list-style: none;
+    i{
+      padding-right: 20px
+    }
+  };
+}
+
+.copySocial{
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  .social-media{
+    display: flex;
+    align-items: center;
+    i{
+      padding: 0 5px;
+    }
+  }
+}
+
