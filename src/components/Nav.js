@@ -1,7 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '../styles/Nav.scss'
+import PanelAdmin from './PanelAdmin';
+
 const Nav = () => {
 
+const [visOffersItems, setVisOffersItems] = useState(false)
+const [visGadetsItems, setVisGadetsItems] = useState(false)
+const [loginPanel, setLoginPanel] = useState(false)
 
 
   return ( 
@@ -11,53 +16,35 @@ const Nav = () => {
         <div className='gear'></div>
       </div>
       <div className='navbar'>
-        <ul>
-          <ul>news</ul>
-          <ul>offers <i className="fas fa-chevron-up"></i>
-            <li>new</li>
-            <li>used</li>
-          </ul>
-          <ul>gadets <i className="fas fa-chevron-up"></i>
-            <li>paints</li>
-            <li>cleaning</li>
-            <li>fixing</li>
-          </ul>
+        <ul className='navlist'>
+          <li className='navlist-main'>news</li>
+          <li className='navlist-main' onClick={() => setVisOffersItems(prev => !prev)}>offers 
+            <i className="fas fa-chevron-up" style={ visOffersItems ? { transform: "rotate(180deg)" } : {}}></i>
+            {visOffersItems ?
+            <ul className='navlist-drop'>
+              <li>new</li>
+              <li>used</li>
+            </ul>: null}
+          </li>
+          <li className='navlist-main' onClick={() => setVisGadetsItems(prev => !prev)}>gadgets 
+            <i className="fas fa-chevron-up" style={ visGadetsItems ? { transform: "rotate(180deg)" } : {}}></i>
+            {visGadetsItems ? 
+            <ul className='navlist-drop'>
+              <li>paints</li>
+              <li>cleaning</li>
+              <li>fixing</li>
+            </ul> : null}
+          </li>
         </ul>
+        <div className='user' onClick={()=> setLoginPanel(prev => !prev)}>        
+          <p>login</p>        
+          <i className="fas fa-user"></i>
+        </div>      
       </div>
-      <div className='user'>        
-        <p>login</p>        
-        <i className="fas fa-user"></i>
-      </div>      
-      <div className='loginPanel'>
-        <form id="isForm">
-          <label>
-            <input 
-              name='login'
-              placeholder='login'
-              type="text" 
-              // value={inputLogin}
-            />
-          </label>
-          <label>
-            <input 
-              name='password'
-              placeholder='password'
-              type="text" 
-              // value={inputLogin}
-            />
-          </label>
-          <input 
-            type="submit"
-            value='login' 
-          />
-          <button>reginster</button>
-          <p><span>-</span> OR <span>-</span></p>
-          <button>
-            <i>logo</i>
-            <p>contine with google</p>
-          </button>
-        </form>
-      </div>
+      {loginPanel ? 
+      <PanelAdmin 
+        setLoginPanel= {setLoginPanel}  
+      /> : null}
     </nav>
    );
 }

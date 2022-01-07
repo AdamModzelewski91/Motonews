@@ -6,7 +6,7 @@ import '../styles/Header.scss';
 
 const Header = () => {
   const [index, setIndex] = useState(0)  
-  let name = index.toString()
+  
   const newName = useRef(index)
   newName.current = index
   const [dotActive, setDotActive] = useState({0:true, 1:false, 2:false, 3:false, 4:false});
@@ -44,21 +44,16 @@ const Header = () => {
       }, 4000);       
     
       return () =>  clearInterval(time)
-  }, [index, name]);
+  }, [index]);
 
-  const handleNextImg = () => {
-    if (name > 4) {
-      setIndex(prevState => prevState = 0)        
-    } 
+  const handleNextImg = () => {     
     handleChangeDot()
-    setIndex(prev => prev + 1)   
+    setIndex(newName.current < 4 ? newName.current + 1 : newName.current = 0)   
   }
-  const handleBeforeImg = () => {
-    if (name < 1) {
-      setIndex(prevState => prevState = 5)        
-    }       
-    setIndex(prev => prev - 1)    
+
+  const handleBeforeImg = () => {          
     handleChangeDot()
+    setIndex(newName.current >= 1 ? newName.current - 1 : newName.current = 4)    
   }
   
   return (

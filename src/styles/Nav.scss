@@ -1,14 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Ruslan+Display&display=swap');
 
-@mixin breakpoint($point){
-  @if $point == desktop_1200w{
-    @media (min-width: 1200px){
-      @content;
-    }
-  }
+@import './index.scss';
+$navbar-lineheight: 7vh;
+
+*li{
+  list-style: none;
 }
-
-$primary-nav-color: darkred;
 
 nav{
   display: flex;
@@ -19,43 +15,115 @@ nav{
   width: 100%;
   text-align: center;
 
+  @include breakpoint(tablet_1024w){
+    flex-direction: row;
+  }  
+
   h1{
     font-family: 'Ruslan Display', cursive;    
     z-index: 1;
-    line-height: 15vh;    
+    margin-top: 10px;       
     font-size: 35px;
+
+    @include breakpoint(tablet_768w){
+      margin-left: 30px;
+      font-size: 45px;
+    }
+
+    @include breakpoint(tablet_1024w){
+      margin-top: 0;  
+      position: absolute;
+      line-height: $navbar-lineheight; 
+    }
   }   
   
   .gear{    
+
     @include breakpoint(desktop_1200w){    
     background-image: url('../img/gear.png');
     background-size: cover;
     object-fit: cover;    
-    width: 500px;
-    height: 500px;   
-    position: fixed;   
-    left: -200px; 
+    width: 550px;
+    height: 550px;   
+    position: absolute;   
+    left: -150px; 
     top: -200px;
     overflow: hidden;
-    z-index: 1;    
+    z-index: 0;    
     transform: translate(-50% -50%);
     animation: clock 50s linear infinite;   
     }
   }
 
-  .navbar{   
-    font-size: 25px;        
+  .navbar{ 
+    font-size: 25px; 
+    
+    @include breakpoint(tablet_768w){
+      font-size: 30px;
+    }
+
+    @include breakpoint(tablet_1024w){
+      font-size: 20px;
+      display: flex;
+      align-items: center;
+      width: 100%;
+      justify-content: flex-end;
+      margin-right: 3vw;
+      line-height: $navbar-lineheight; 
+    }
+    
+    .navlist{
+      cursor: pointer;
+      
+      @include breakpoint(tablet_1024w){
+        display: flex;
+        padding-right: 30px;
+      }  
+      
+      .navlist-main{
+
+        @include breakpoint(tablet_1024w){          
+          padding-left: 50px;
+        }
+      }
+
+      .navlist-drop{
+
+        @include breakpoint (tablet_1024w){
+          margin: 0;          
+          line-height: $navbar-lineheight;          
+          position: absolute;
+          transform: translate(-20%, -2px);
+          z-index: 1;
+          background-color: $primary-nav-color;
+          width: 135px;
+        }
+      }
+    }     
+    
+    i{
+      margin-left: 10px;
+      transition: 0.5s;
+    }
   }
 
   .user{
+    cursor: pointer;
     display: flex;    
-    font-size:25px;
     justify-content: center;
-    line-height: 50px;
+    line-height: $navbar-lineheight; 
+
+    @include breakpoint(tablet_768w){
+      margin-bottom: 15px;
+    }    
+    
+    @include breakpoint(tablet_1024w){
+      margin-bottom: 0;
+    }
     
     i{
       margin-left: 20px;
-      line-height: 50px;
+      line-height: $navbar-lineheight; 
     }
   }
 }
@@ -64,13 +132,4 @@ nav{
   0% {transform: rotate(0deg);}
   100% {transform: rotate(360deg);}
 }
-
-.loginPanel{
-  // position: absolute;
-  display: none;
-  background-color: $primary-nav-color;
-  right: 0;
-  top: 0;    
-}
-
 

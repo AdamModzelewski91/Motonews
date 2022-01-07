@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ruslan+Display&display=swap');
+
+@mixin breakpoint($point){
+  @if $point == tablet_768w{
+    @media (min-width: 768px){
+      @content;
+    }
+  }
+  @if $point == tablet_1024w{
+    @media (min-width: 1024px){
+      @content;
+    }
+  }
+  @if $point == desktop_1200w{
+    @media (min-width: 1200px){
+      @content;
+    }
+  }  
+}
+
+$primary-nav-color: darkred;
+$heading-color: #222;
+$paragraph-color: #444;
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Oswald', sans-serif;
+}
+
