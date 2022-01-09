@@ -12,7 +12,7 @@
     left: 50vw;
     top: 50vh; 
     width: 600px;
-    height: 30%;
+    height: 350px;
     transform: translate(-50%, -50%);  
   }
 
@@ -101,6 +101,44 @@
     top: 10px;
     font-size: 20px;
   }
+
+ 
+}
+
+.account{
+
+  .userPict{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 10px solid white;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin: 50px auto 0;
+        
+    i{
+      font-size: 50px;
+    }
+  }
+
+  p{
+    margin: 20px 0 30px;
+    
+    @include breakpoint (tablet_768w){
+      font-size: 20px;
+    }
+  }
+
+  button{
+    text-transform: uppercase;
+    width: 100px;
+
+    @include breakpoint (tablet_768w){
+      font-size: 20px;
+    }
+  }
+
 }
 
 

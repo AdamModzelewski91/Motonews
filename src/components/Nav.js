@@ -3,10 +3,12 @@ import '../styles/Nav.scss'
 import PanelAdmin from './PanelAdmin';
 
 const Nav = () => {
-
+  
 const [visOffersItems, setVisOffersItems] = useState(false)
 const [visGadetsItems, setVisGadetsItems] = useState(false)
 const [loginPanel, setLoginPanel] = useState(false)
+const [isLogged, setIsLogged] = useState(false)
+const [loggedUser, setLoggedUser] = useState('')
 
 
   return ( 
@@ -37,13 +39,17 @@ const [loginPanel, setLoginPanel] = useState(false)
           </li>
         </ul>
         <div className='user' onClick={()=> setLoginPanel(prev => !prev)}>        
-          <p>login</p>        
+          <p>{isLogged ? "Account" : "login"}</p>        
           <i className="fas fa-user"></i>
         </div>      
       </div>
       {loginPanel ? 
       <PanelAdmin 
-        setLoginPanel= {setLoginPanel}  
+        setLoginPanel = {setLoginPanel}  
+        setIsLogged = {setIsLogged}
+        isLogged= {isLogged}
+        setLoggedUser= {setLoggedUser}
+        loggedUser={loggedUser}
       /> : null}
     </nav>
    );

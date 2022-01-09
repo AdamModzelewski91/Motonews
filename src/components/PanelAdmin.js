@@ -1,23 +1,57 @@
 import React, { useState } from 'react';
 import '../styles/PanelAdmin.scss'
 
-const PanelAdmin = ({setLoginPanel}) => {
+const objUsers = [
+  {
+    login: "Adam",
+    password: "123456",
+  },
+  {
+    login: "Dan",
+    password: "54321",
+  }
+]
 
+const PanelAdmin = ({setLoginPanel, setIsLogged, isLogged, loggedUser, setLoggedUser}) => {
+
+  
   const [inputLogin, setInputLogin] = useState('')
   const [inputPassword, setPassword] = useState('')
+  
 
   const signIn = (e) => {
     e.preventDefault()
+
+    let checkUser = objUsers.filter(user => user.login === inputLogin)    
+    if (checkUser.filter(pw => pw.password === inputPassword).length === 1) {      
+      setIsLogged(prev => !prev)
+      setLoggedUser(inputLogin)
+      setLoginPanel(false)
+    } else{
+      alert("bad password")
+    }
   } 
 
-  const reginsterAcc = (e) => {
+  const registerAcc = (e) => {
     e.preventDefault()
+
+    if(inputLogin.length > 5 && inputPassword.length > 5){
+      objUsers.push({login: inputLogin, password: inputPassword})
+      setLoginPanel(false)
+    }
+  }
+
+  const logoutAcc = (e) => {
+    e.preventDefault()
+    
+    setIsLogged(prev => !prev)
+    setLoginPanel(false)    
   }
 
   return ( 
     <div className='loginPanel'>
       <i className="far fa-window-close" onClick={()=> setLoginPanel(prev => !prev)}></i>
-      <form id="isForm">
+      {!isLogged ? <form id="isForm">
         <div className='wrapper-label'>
           <label>
             <input 
@@ -44,14 +78,21 @@ const PanelAdmin = ({setLoginPanel}) => {
             value='Sign In' 
             onClick={signIn}
           />
-          <button className='submit' onClick={reginsterAcc}>register</button>
+          <button className='submit' onClick={registerAcc}>register</button>
         </div>
         <p><span></span> OR <span></span></p>
         <button className='wrapper-google'>
           <p><i className="fab fa-google"></i></p>
           <p>Continue with Google</p>
         </button>
-      </form>
+      </form> : 
+      <div className='account'>
+        <div className='userPict'>
+          <i className="fas fa-user"></i>
+        </div>
+        <p>{loggedUser}</p>
+        <button className='submit' onClick={logoutAcc}>Logout</button>
+      </div> }
     </div>
    );
 }
