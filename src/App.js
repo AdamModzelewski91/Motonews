@@ -18,7 +18,7 @@ function App() {
         <section>
           <Routes>
             <Route>
-              {['/', '/news'].map((path) => (
+              {['/', '/news', '/Motonews/'].map((path) => (
                 <Route path={path} key={path} element={<><Header/><Article/></>} />
               ))}
             </Route>           
