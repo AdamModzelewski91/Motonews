@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/Motonews/static/css/main.1c7ffd08.css",
-    "main.js": "/Motonews/static/js/main.e62dab10.js",
+    "main.js": "/Motonews/static/js/main.4d24bce8.js",
     "static/media/Toyota Yaris III (2011-2019).png": "/Motonews/static/media/Toyota Yaris III (2011-2019).0c9fd5e1b4880ddb92e1.png",
     "static/media/Renault Koleos II.png": "/Motonews/static/media/Renault Koleos II.4528667b58a6531b37f7.png",
     "static/media/ALFA ROMEO STELVIO 2.0 - 200 KM DACH.png": "/Motonews/static/media/ALFA ROMEO STELVIO 2.0 - 200 KM DACH.2145bb8e00d50964a5ca.png",
@@ -23,10 +23,10 @@
     "static/media/audi.jpg": "/Motonews/static/media/audi.d6a73cfa58bc40e0fb36.jpg",
     "index.html": "/Motonews/index.html",
     "main.1c7ffd08.css.map": "/Motonews/static/css/main.1c7ffd08.css.map",
-    "main.e62dab10.js.map": "/Motonews/static/js/main.e62dab10.js.map"
+    "main.4d24bce8.js.map": "/Motonews/static/js/main.4d24bce8.js.map"
   },
   "entrypoints": [
     "static/css/main.1c7ffd08.css",
-    "static/js/main.e62dab10.js"
+    "static/js/main.4d24bce8.js"
   ]
 }
