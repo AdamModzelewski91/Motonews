@@ -1,8 +1,6 @@
 import React, { useEffect, useState, useRef} from 'react';
 import imageAPI from './api/data';
-
 import '../styles/Header.scss';
-
 
 const Header = () => {
   const [index, setIndex] = useState(0)  
@@ -41,7 +39,7 @@ const Header = () => {
             4:false,
             [newName.current]: !prev[newName.current]
           }})    
-      }, 4000);       
+      }, 10000);       
     
       return () =>  clearInterval(time)
   }, [index]);
@@ -74,8 +72,7 @@ const Header = () => {
             </div>
             <div className='small' value='4' onClick={handleClick}
               style={{backgroundImage: `url(${imageAPI[4].picture})`}}>              
-            </div>
-            {/* {console.log(index)} */}
+            </div>           
           </div>
           <div className='big-container'>
             <div className='arrow' onClick={handleBeforeImg}><i className="fas fa-chevron-left"></i></div>

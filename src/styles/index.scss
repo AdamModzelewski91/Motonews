@@ -2,6 +2,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Ruslan+Display&display=swap');
 
 @mixin breakpoint($point){
+  @if ($point == ratio_long){
+    @media (min-aspect-ratio: 9/22) and (max-aspect-ratio: 9/16){
+      @content;
+    }
+  }
   @if $point == tablet_768w{
     @media (min-width: 768px){
       @content;
@@ -14,6 +19,11 @@
   }
   @if $point == desktop_1200w{
     @media (min-width: 1200px){
+      @content;
+    }
+  }  
+  @if $point == desktop_2000w{
+    @media (min-width: 2000px){
       @content;
     }
   }  
@@ -30,3 +40,11 @@ $paragraph-color: #444;
   font-family: 'Oswald', sans-serif;
 }
 
+*a{
+  color:white;
+  text-decoration: none;  
+}
+
+body{
+  background-color: rgb(243, 243, 243);
+}

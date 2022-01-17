@@ -47,6 +47,10 @@
 .block{  
   height: 50vh;
 
+  @include breakpoint (ratio_long){
+    flex-basis: 33.3vh;
+  }
+
   @include breakpoint (desktop_1200w){    
     flex-basis: 50%;
   }

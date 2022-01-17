@@ -1,0 +1,20 @@
+@import './index.scss';
+
+.image.img_desc{
+  height: 300px;
+
+  img{
+    object-fit: contain;
+  }
+}
+
+.item-wrapper{
+
+  .wrap-right{
+    padding: 0 5%;
+    @include breakpoint (tablet_768w){
+      text-align: left;
+      padding: 0;
+    }
+  }
+}

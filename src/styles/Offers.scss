@@ -1,0 +1,106 @@
+@import './index.scss';
+
+.item-wrapper{
+  background-color: #eee;
+  display: flex;
+  flex-direction: column; 
+  align-items: center; 
+  padding-bottom: 20px;
+  text-align: center;   
+
+  @include breakpoint (tablet_768w) {
+    flex-direction: row;
+  }
+
+  @include breakpoint (tablet_1024w) {
+    padding: 0 10%;
+  }
+
+  @include breakpoint (desktop_1200w) {
+    padding: 0 15%;
+  }
+  
+  @include breakpoint (desktop_2000w) {
+    padding: 0 20%;
+  }
+
+  .wrap-right{        
+
+    @include breakpoint (tablet_768w){
+      display: flex;
+      flex-direction: column;         
+      width: 100%;     
+      padding: 10px;
+      justify-content: space-between; 
+    }     
+  }
+
+  .stats{
+    display: none;
+
+    @include breakpoint (tablet_768w){
+      display: flex;       
+      flex-wrap: wrap;
+    }
+
+    p{
+      
+      @include breakpoint (tablet_768w){        
+        width: 50%;  
+        text-align: left;
+        font-size: 20px;
+      }      
+      @include breakpoint (desktop_1200w){   
+        font-size: 25px;
+      }    
+    }       
+  }
+
+  .stats-bottom{
+    
+    @include breakpoint (tablet_768w){
+      display: flex;      
+      justify-content: space-between;
+      margin-top: 20px;
+    }
+  }  
+
+  .image{    
+    width: 100%;    
+
+    @include breakpoint (tablet_768w){                
+      padding: 10px;
+    }     
+  }  
+
+  h2{
+    font-size: 20px;
+
+    @include breakpoint (tablet_768w){
+      text-align: left;
+      font-size: 25px;
+    }
+
+    @include breakpoint (desktop_1200w){      
+      font-size: 30px;
+    }
+    
+  }
+
+  .btn-addToCart{
+    text-transform: uppercase;
+    border-style: none;
+    background-color: $primary-nav-color;
+    color: white;
+    width: 50vw;
+    margin: 0 auto;
+    height: 40px;
+    font-size: 20px;
+    cursor: pointer;
+
+    @include breakpoint (tablet_768w){
+      margin: 0;
+      width: 50%;
+    }
+  }
+}

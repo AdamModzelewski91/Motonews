@@ -47,7 +47,7 @@ const PanelAdmin = ({setLoginPanel, setIsLogged, isLogged, loggedUser, setLogged
     setIsLogged(prev => !prev)
     setLoginPanel(false)    
   }
-
+  
   return ( 
     <div className='loginPanel'>
       <i className="far fa-window-close" onClick={()=> setLoginPanel(prev => !prev)}></i>
@@ -66,7 +66,7 @@ const PanelAdmin = ({setLoginPanel, setIsLogged, isLogged, loggedUser, setLogged
             <input 
               name='password'
               placeholder='password'
-              type="text" 
+              type="password" 
               value={inputPassword}
               onChange={(e)=> setPassword(e.target.value)}
             />
@@ -81,7 +81,7 @@ const PanelAdmin = ({setLoginPanel, setIsLogged, isLogged, loggedUser, setLogged
           <button className='submit' onClick={registerAcc}>register</button>
         </div>
         <p><span></span> OR <span></span></p>
-        <button className='wrapper-google'>
+        <button className='wrapper-google' onClick={(e) => e.preventDefault() }>
           <p><i className="fab fa-google"></i></p>
           <p>Continue with Google</p>
         </button>
