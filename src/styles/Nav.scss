@@ -12,11 +12,15 @@ nav{
   color: white;   
   text-transform: uppercase;
   width: 100%;
-  text-align: center;  
+  text-align: center;    
 
   @include breakpoint(tablet_1024w){
-    flex-direction: row;
+    flex-direction: row;    
   }  
+
+  label{
+    text-align: left; 
+  }
 
   h1{
     font-family: 'Ruslan Display', cursive;    

@@ -24,15 +24,26 @@
     margin: 0 auto;
     justify-content: center;
 
+    label{   
+      display: block;   
+      font-weight: 400;
+      height: 25px;
+      font-size: 15px;
+    }
+
     input{
       width: 100%;
       margin-bottom: 10px;
 
       @include breakpoint (tablet_768w){
         font-size: 20px;
-        margin-bottom: 20px;
+        margin-bottom: 20px; 
+
+        &#login{
+          margin-bottom: 0;
+        }       
       }
-    }
+    }    
 
     .submit{
       width: 45%;
@@ -100,9 +111,7 @@
     right: 10px;
     top: 10px;
     font-size: 20px;
-  }
-
- 
+  } 
 }
 
 .account{
